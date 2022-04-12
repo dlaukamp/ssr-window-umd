@@ -21,10 +21,7 @@ npm i ssr-window
 ## Usage
 
 ```js
-import { getWindow, getDocument } from 'ssr-window';
-
-const window = getWindow();
-const document = getDocument();
+import { window, document } from 'ssr-window';
 
 window.addEventListener('resize', () => {});
 
@@ -36,17 +33,17 @@ const div = document.querySelectorAll('div');
 If you rely on some window/document properties which are not included here, you can use `extend` helper to add them:
 
 ```js
-import { ssrWindow, ssrDocument, extend } from 'ssr-window';
+import { window, document, extend } from 'ssr-window';
 
 // add window.navigator.language
-extend(ssrWindow, {
+extend(window, {
   navigator: {
     language: 'en',
   },
 });
 
 // add document.body
-extend(ssrDocument, {
+extend(document, {
   body: {
     /* ... */
   },
